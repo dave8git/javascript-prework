@@ -1,14 +1,11 @@
-var argButtonName, buttonTest;
+let argButtonName, buttonTest;
 
-/**
- * Describe this function...
- */
 function buttonClicked(argButtonName) {
     clearMessages();
     console.log(argButtonName + ' został kliknięty');
 
     function printMessage(msg) {
-        var div = document.createElement('div');
+        let div = document.createElement('div');
         div.innerHTML = msg;
         document.getElementById('messages').appendChild(div);
     }
@@ -17,11 +14,7 @@ function buttonClicked(argButtonName) {
         document.getElementById('messages').innerHTML = '';
     }
 
-    var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput, x;
-
-    /**
-     * Describe this function...
-     */
+    let argMoveId;
     function getMoveName(argMoveId) {
         console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
         if (argMoveId == 1) {
@@ -36,9 +29,7 @@ function buttonClicked(argButtonName) {
         }
     }
 
-    /**
-     * Describe this function...
-     */
+    let argPlayerMove, argComputerMove;
     function displayResult(argPlayerMove, argComputerMove) {
         console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
         if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
@@ -54,6 +45,8 @@ function buttonClicked(argButtonName) {
         }
         printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
     }
+    let playerMove, computerMove;
+    let randomNumber;
     playerMove = argButtonName;
     console.log('ruch gracza to: ' + playerMove);
     randomNumber = Math.floor(Math.random() * 3 + 1);
