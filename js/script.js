@@ -1,20 +1,7 @@
-let argButtonName, buttonTest;
-
-function buttonClicked(argButtonName) {
+function buttonClicked(playerMove) {
     clearMessages();
-    console.log(argButtonName + ' został kliknięty');
+    console.log(playerMove + ' został kliknięty');
 
-    function printMessage(msg) {
-        let div = document.createElement('div');
-        div.innerHTML = msg;
-        document.getElementById('messages').appendChild(div);
-    }
-
-    function clearMessages() {
-        document.getElementById('messages').innerHTML = '';
-    }
-
-    let argMoveId;
     function getMoveName(argMoveId) {
         console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
         if (argMoveId == 1) {
@@ -29,7 +16,6 @@ function buttonClicked(argButtonName) {
         }
     }
 
-    let argPlayerMove, argComputerMove;
     function displayResult(argPlayerMove, argComputerMove) {
         console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
         if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
@@ -45,25 +31,22 @@ function buttonClicked(argButtonName) {
         }
         printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
     }
-    let playerMove, computerMove;
-    let randomNumber;
-    playerMove = argButtonName;
     console.log('ruch gracza to: ' + playerMove);
-    randomNumber = Math.floor(Math.random() * 3 + 1);
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
     console.log('wylosowana liczba to: ' + randomNumber);
-    computerMove = getMoveName(randomNumber);
+    const computerMove = getMoveName(randomNumber);
     console.log('ruch komputera to: ' + computerMove);
     displayResult(playerMove, computerMove);
 }
-buttonRock = document.getElementById('button-rock');
+const buttonRock = document.getElementById('button-rock');
 buttonRock.addEventListener('click', function () {
     buttonClicked('kamień');
 });
-buttonPaper = document.getElementById('button-paper');
+const buttonPaper = document.getElementById('button-paper');
 buttonPaper.addEventListener('click', function () {
     buttonClicked('papier');
 });
-buttonScissors = document.getElementById('button-scissors');
+const buttonScissors = document.getElementById('button-scissors');
 buttonScissors.addEventListener('click', function () {
     buttonClicked('nożyce');
 });
